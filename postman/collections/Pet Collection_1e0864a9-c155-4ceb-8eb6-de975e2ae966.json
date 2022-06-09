@@ -1,0 +1,111 @@
+{
+	"info": {
+		"_postman_id": "932615dd-d82e-4296-b680-e296065f9d0c",
+		"name": "Pet Collection",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Add Pet to store",
+			"id": "87757f02-8a6a-421d-9bde-6de761e4a748",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"id\": 0,\r\n  \"category\": {\r\n    \"id\": 0,\r\n    \"name\": \"string\"\r\n  },\r\n  \"name\": \"doggie\",\r\n  \"photoUrls\": [\r\n    \"string\"\r\n  ],\r\n  \"tags\": [\r\n    {\r\n      \"id\": 0,\r\n      \"name\": \"string\"\r\n    }\r\n  ],\r\n  \"status\": \"available\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{URL}}/pet",
+					"host": [
+						"{{URL}}"
+					],
+					"path": [
+						"pet"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Find Pet by Id",
+			"id": "678a59d6-d769-42f3-8e44-415c89bbac7a",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{URL}}/pet/9223372036854019407",
+					"host": [
+						"{{URL}}"
+					],
+					"path": [
+						"pet",
+						"9223372036854019407"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete a Pet",
+			"id": "3355bebc-bc7e-41a0-b169-5dfed0baf190",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "{{URL}}/pet/9223372036854019407",
+					"host": [
+						"{{URL}}"
+					],
+					"path": [
+						"pet",
+						"9223372036854019407"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Fine a Pet by status",
+			"id": "b78b5832-bb02-4c51-afdb-1b6db0b555a7",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{URL}}/pet/findByStatus?status=available",
+					"host": [
+						"{{URL}}"
+					],
+					"path": [
+						"pet",
+						"findByStatus"
+					],
+					"query": [
+						{
+							"key": "status",
+							"value": "available"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

@@ -1,0 +1,86 @@
+{
+	"info": {
+		"_postman_id": "6676980a-240e-45ec-98b0-22e8e1ce1b8f",
+		"name": "Store Collection",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Place order to Pet",
+			"id": "533041dd-730e-43d3-8574-695ca0eae425",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"id\": 0,\r\n  \"petId\": 0,\r\n  \"quantity\": 0,\r\n  \"shipDate\": \"2022-06-09T10:01:48.623Z\",\r\n  \"status\": \"placed\",\r\n  \"complete\": true\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{URL}}/store/order",
+					"host": [
+						"{{URL}}"
+					],
+					"path": [
+						"store",
+						"order"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Find order by Id",
+			"id": "ab715ad0-dcc2-4514-b1ef-2130cf51b2bf",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{URL}}/store/order/1",
+					"host": [
+						"{{URL}}"
+					],
+					"path": [
+						"store",
+						"order",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete order by Id",
+			"id": "4ee36788-ce8d-4aa0-9d6c-8d0ab2472639",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "{{URL}}/store/order/1",
+					"host": [
+						"{{URL}}"
+					],
+					"path": [
+						"store",
+						"order",
+						"1"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

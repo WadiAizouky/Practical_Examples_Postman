@@ -41,7 +41,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n  \"id\": 0,\r\n  \"username\": \"user1\",\r\n  \"firstName\": \"string\",\r\n  \"lastName\": \"string\",\r\n  \"email\": \"string\",\r\n  \"password\": \"{{PassWord}}\",\r\n  \"phone\": \"string\",\r\n  \"userStatus\": 0\r\n}",
+					"raw": "{\r\n  \"id\": 0,\r\n  \"username\": \"{{UserName}}\",\r\n  \"firstName\": \"string\",\r\n  \"lastName\": \"string\",\r\n  \"email\": \"string\",\r\n  \"password\": \"{{PassWord}}\",\r\n  \"phone\": \"string\",\r\n  \"userStatus\": 0\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -237,13 +237,13 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "{{URL}}/user/user1",
+					"raw": "{{URL}}/user/Wadi",
 					"host": [
 						"{{URL}}"
 					],
 					"path": [
 						"user",
-						"user1"
+						"Wadi"
 					]
 				}
 			},

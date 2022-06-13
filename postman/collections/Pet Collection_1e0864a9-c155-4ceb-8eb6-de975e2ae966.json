@@ -7,6 +7,18 @@
 	"item": [
 		{
 			"name": "Add Pet to store",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "e1ce1022-40d1-49cb-bd6c-a1425c299c6d",
+						"exec": [
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
 			"id": "87757f02-8a6a-421d-9bde-6de761e4a748",
 			"protocolProfileBehavior": {
 				"disableBodyPruning": true

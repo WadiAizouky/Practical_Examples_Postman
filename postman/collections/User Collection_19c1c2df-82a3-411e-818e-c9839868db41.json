@@ -16,7 +16,9 @@
 						"exec": [
 							"pm.test(\"Add User\", function () {\r",
 							"    pm.response.to.have.status(200);\r",
-							"});"
+							"});\r",
+							"\r",
+							""
 						],
 						"type": "text/javascript"
 					}
@@ -41,7 +43,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n  \"id\": 0,\r\n  \"username\": \"{{UserName}}\",\r\n  \"firstName\": \"string\",\r\n  \"lastName\": \"string\",\r\n  \"email\": \"string\",\r\n  \"password\": \"{{PassWord}}\",\r\n  \"phone\": \"string\",\r\n  \"userStatus\": 0\r\n}",
+					"raw": "{\r\n  \"id\": 0,\r\n  \"username\": \"{{UserName}}\",\r\n  \"firstName\": \"fname\",\r\n  \"lastName\": \"string\",\r\n  \"email\": \"string\",\r\n  \"password\": \"{{PassWord}}\",\r\n  \"phone\": \"string\",\r\n  \"userStatus\": 0\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"

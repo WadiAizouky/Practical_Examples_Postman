@@ -7,6 +7,18 @@
 	"item": [
 		{
 			"name": "Place order to Pet",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "3555aa09-8ab1-474b-a5b9-5a8149e55842",
+						"exec": [
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
 			"id": "533041dd-730e-43d3-8574-695ca0eae425",
 			"protocolProfileBehavior": {
 				"disableBodyPruning": true

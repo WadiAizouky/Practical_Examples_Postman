@@ -13,7 +13,10 @@
 					"script": {
 						"id": "e1ce1022-40d1-49cb-bd6c-a1425c299c6d",
 						"exec": [
-							""
+							"var jsonData = pm.response.json();\r",
+							"var PetId = jsonData.id;\r",
+							"pm.variables.set(\"PetId\", PetId);\r",
+							"console.log(jsonData);"
 						],
 						"type": "text/javascript"
 					}
@@ -21,14 +24,21 @@
 			],
 			"id": "87757f02-8a6a-421d-9bde-6de761e4a748",
 			"protocolProfileBehavior": {
-				"disableBodyPruning": true
+				"disableBodyPruning": true,
+				"maxRedirects": 10,
+				"strictSSL": true,
+				"followRedirects": true,
+				"followOriginalHttpMethod": false,
+				"followAuthorizationHeader": false,
+				"removeRefererHeaderOnRedirect": false,
+				"disableUrlEncoding": false
 			},
 			"request": {
 				"method": "POST",
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n  \"id\": 0,\r\n  \"category\": {\r\n    \"id\": 0,\r\n    \"name\": \"string\"\r\n  },\r\n  \"name\": \"doggie\",\r\n  \"photoUrls\": [\r\n    \"string\"\r\n  ],\r\n  \"tags\": [\r\n    {\r\n      \"id\": 0,\r\n      \"name\": \"string\"\r\n    }\r\n  ],\r\n  \"status\": \"available\"\r\n}",
+					"raw": "{\r\n  \"category\": {\r\n    \"id\": 0,\r\n    \"name\": \"string\"\r\n  },\r\n  \"name\": \"{{PetName}}\",\r\n  \"photoUrls\": [\r\n    \"string\"\r\n  ],\r\n  \"tags\": [\r\n    {\r\n      \"id\": 0,\r\n      \"name\": \"string\"\r\n    }\r\n  ],\r\n  \"status\": \"available1\"\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -49,6 +59,18 @@
 		},
 		{
 			"name": "Find Pet by Id",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "ef29a052-4cb9-46d5-b506-1ef1fc217d59",
+						"exec": [
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
 			"id": "678a59d6-d769-42f3-8e44-415c89bbac7a",
 			"protocolProfileBehavior": {
 				"disableBodyPruning": true
@@ -57,13 +79,13 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "{{URL}}/pet/9223372036854019407",
+					"raw": "{{URL}}/pet/body.id",
 					"host": [
 						"{{URL}}"
 					],
 					"path": [
 						"pet",
-						"9223372036854019407"
+						"body.id"
 					]
 				}
 			},
@@ -79,13 +101,13 @@
 				"method": "DELETE",
 				"header": [],
 				"url": {
-					"raw": "{{URL}}/pet/9223372036854019407",
+					"raw": "{{URL}}/pet/{{PetId}}",
 					"host": [
 						"{{URL}}"
 					],
 					"path": [
 						"pet",
-						"9223372036854019407"
+						"{{PetId}}"
 					]
 				}
 			},
@@ -93,6 +115,21 @@
 		},
 		{
 			"name": "Fine a Pet by status",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "924c1cb8-c8f7-467d-a96b-59aa85b2ddd2",
+						"exec": [
+							"var jsonData = pm.response.json();\r",
+							"var PetId = jsonData.id;\r",
+							"pm.variables.set(\"PetId\", PetId);\r",
+							"console.log(jsonData);"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
 			"id": "b78b5832-bb02-4c51-afdb-1b6db0b555a7",
 			"protocolProfileBehavior": {
 				"disableBodyPruning": true
@@ -101,7 +138,7 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "{{URL}}/pet/findByStatus?status=available",
+					"raw": "{{URL}}/pet/findByStatus?status=available1",
 					"host": [
 						"{{URL}}"
 					],
@@ -112,12 +149,42 @@
 					"query": [
 						{
 							"key": "status",
-							"value": "available"
+							"value": "available1"
 						}
 					]
 				}
 			},
 			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"id": "d1ac58f8-fd80-4caf-b2af-29afc78114ba",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"id": "423f702e-0d32-4b22-9b85-3a96b7716408",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"id": "e4d45f85-b483-43a7-8c48-f1c53f830d3e",
+			"key": "PetName",
+			"value": "",
+			"type": "string"
 		}
 	]
 }

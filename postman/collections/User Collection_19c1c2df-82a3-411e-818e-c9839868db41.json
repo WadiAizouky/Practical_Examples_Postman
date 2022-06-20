@@ -14,9 +14,56 @@
 					"script": {
 						"id": "7484f017-5422-4bf3-8cfd-84cb88f2d2ce",
 						"exec": [
-							"pm.test(\"Add User\", function () {\r",
+							"\r",
+							"let template = `\r",
+							"    <link rel=\"stylesheet\" href=\"https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css\" integrity=\"sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO\"\r",
+							"        crossorigin=\"anonymous\">\r",
+							"    <style type=\"text/css\">\r",
+							"        body { font-size: 12px; background: #eee; padding: 16px;}\r",
+							"        .card { border-radius: 8px; box-shadow: 0 4px 10px rgba(0,0,0,.15); -webkit-box-shadow: 0 4px 10px rgba(0,0,0,.15); -moz-box-shadow: 0 4px 10px rgba(0,0,0,.15);}\r",
+							"        .card-topper { border-top-right-radius: 8px; border-top-left-radius: 8px; padding: 8px 16px; font-size: 12px; font-weight: 600; text-transform: uppercase;}\r",
+							"        .card-topper.micro { background-color: #173F5F; color: #ffffff;}\r",
+							"        .card-topper.planning { background-color: #ED553B; color: #ffffff;}\r",
+							"        .card-topper.large { background-color: #ED553B; color: #ffffff;}\r",
+							"        .card-topper.brewpub { background-color: #20639B; color: #ffffff;}\r",
+							"        .card-topper.regional { background-color: #F6D55C;}\r",
+							"        .card-topper.contract { background-color: #3CAEA3; color: #ffffff;}\r",
+							"        .card-topper.proprietor { background-color: #ED553B; color: #ffffff;}\r",
+							"        .card-topper.bar { background-color: #ED553B; color: #ffffff;}\r",
+							"    </style>\r",
+							"    <div class=\"container-fluid\">\r",
+							"        <div class=\"row\">\r",
+							"            <div class=\"col mb-4\">\r",
+							"                <h1>Breweries</h1>\r",
+							"            </div>\r",
+							"        </div>\r",
+							"        <div class=\"row\">\r",
+							"            {{#each response}}\r",
+							"            <div class=\"col-sm-6 col-lg-4 col-xl-3 mb-5\">\r",
+							"                <div class=\"card\">\r",
+							"                    <div class=\"test card-topper card-img-top {{brewery_type}}\">{{brewery_type}}</div>\r",
+							"                    <div class=\"card-body\">\r",
+							"                        <h2>{{name}}</h2>\r",
+							"                        <address>{{street}}<br>{{city}}, {{state}} {{postal_code}}</address>\r",
+							"                        <a href=\"{{website_url}}\" class=\"card-link\" target=\"_blank\" rel=\"noopener noreferrer\">Website</a>\r",
+							"                        <a href=\"https://www.google.com/maps/search/?api=1&query={{name}} {{state}}\" class=\"card-link\" target=\"_blank\" rel=\"noopener noreferrer\">Map</a>\r",
+							"                    </div>\r",
+							"                </div>\r",
+							"            </div>\r",
+							"            {{/each}}\r",
+							"        </div>\r",
+							"    </div>\r",
+							"`;\r",
+							"\r",
+							"pm.visualizer.set(template, {\r",
+							"    response: JSON.parse(responseBody)\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Status code is 200\", function () {\r",
 							"    pm.response.to.have.status(200);\r",
 							"});\r",
+							"\r",
+							"\r",
 							"\r",
 							""
 						],
@@ -43,7 +90,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n  \"id\": 0,\r\n  \"username\": \"{{UserName}}\",\r\n  \"firstName\": \"fname\",\r\n  \"lastName\": \"string\",\r\n  \"email\": \"string\",\r\n  \"password\": \"{{PassWord}}\",\r\n  \"phone\": \"string\",\r\n  \"userStatus\": 0\r\n}",
+					"raw": "{\r\n  \"id\": 0,\r\n  \"username\": \"wad\",\r\n  \"firstName\": \"fname\",\r\n  \"lastName\": \"string\",\r\n  \"email\": \"wadi@gmail\",\r\n  \"password\": \"wad\",\r\n  \"phone\": \"string\",\r\n  \"userStatus\": 0\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -115,7 +162,7 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "{{URL}}/user/login?username=user1&password=user1",
+					"raw": "{{URL}}/user/login?username=wade&password=wad",
 					"host": [
 						"{{URL}}"
 					],
@@ -126,11 +173,11 @@
 					"query": [
 						{
 							"key": "username",
-							"value": "user1"
+							"value": "wade"
 						},
 						{
 							"key": "password",
-							"value": "user1"
+							"value": "wad"
 						}
 					]
 				}
@@ -161,13 +208,13 @@
 				"method": "DELETE",
 				"header": [],
 				"url": {
-					"raw": "{{URL}}/user/{{UserName}}",
+					"raw": "{{URL}}/user/wad",
 					"host": [
 						"{{URL}}"
 					],
 					"path": [
 						"user",
-						"{{UserName}}"
+						"wad"
 					]
 				}
 			},
@@ -184,7 +231,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n  \"id\": 0,\r\n  \"username\": \"user1update\",\r\n  \"firstName\": \"string\",\r\n  \"lastName\": \"string\",\r\n  \"email\": \"string\",\r\n  \"password\": \"string\",\r\n  \"phone\": \"string\",\r\n  \"userStatus\": 0\r\n}",
+					"raw": "{\r\n  \"id\": 0,\r\n  \"username\": \"wadi\",\r\n  \"firstName\": \"string\",\r\n  \"lastName\": \"string\",\r\n  \"email\": \"string\",\r\n  \"password\": \"wadi\",\r\n  \"phone\": \"string\",\r\n  \"userStatus\": 0\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -192,13 +239,13 @@
 					}
 				},
 				"url": {
-					"raw": "{{URL}}/user/{{body.id}}",
+					"raw": "{{URL}}/user/wad",
 					"host": [
 						"{{URL}}"
 					],
 					"path": [
 						"user",
-						"{{body.id}}"
+						"wad"
 					]
 				}
 			},
@@ -239,13 +286,13 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "{{URL}}/user/Wadi",
+					"raw": "{{URL}}/user/wad",
 					"host": [
 						"{{URL}}"
 					],
 					"path": [
 						"user",
-						"Wadi"
+						"wad"
 					]
 				}
 			},
